@@ -45,6 +45,7 @@ const defaultOptions = {
     err: defaultErrorSerializer
   }),
   timestamp: epochTime,
+  timeKey: null,
   name: undefined,
   redact: null,
   customLevels: null,
@@ -63,6 +64,7 @@ function pino (...args) {
     crlf,
     serializers,
     timestamp,
+    timeKey,
     messageKey,
     base,
     name,
@@ -88,7 +90,7 @@ function pino (...args) {
   const chindings = base === null ? '' : (name === undefined)
     ? coreChindings(base) : coreChindings(Object.assign({}, base, { name }))
   const time = (timestamp instanceof Function)
-    ? timestamp : (timestamp ? epochTime : nullTime)
+    ? timestamp : (timestamp ? epochTime.bind(timeKey) : nullTime)
 
   if (useOnlyCustomLevels && !customLevels) throw Error('customLevels is required if useOnlyCustomLevels is set true')
 

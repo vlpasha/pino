@@ -1,9 +1,13 @@
 {
   "name": "pino",
-  "version": "5.11.1",
+  "version": "5.11.2",
   "description": "super fast, all natural json logger",
   "main": "pino.js",
   "browser": "./browser.js",
+  "publishConfig": {
+    "registry": "https://npm.dev.gionix.com",
+    "access": "restricted"
+  },
   "files": [
     "pino.js",
     "bin.js",
@@ -35,10 +39,9 @@
   "bin": {
     "pino": "./bin.js"
   },
-  "precommit": "test",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pinojs/pino.git"
+    "url": "git+https://github.com/vlpasha/pino/pino.git"
   },
   "keywords": [
     "fast",
@@ -70,7 +73,6 @@
     "log": "^3.0.0",
     "loglevel": "^1.6.1",
     "pino-pretty": "^2.4.0",
-    "pre-commit": "^1.2.2",
     "proxyquire": "^2.1.0",
     "pump": "^3.0.0",
     "qodaa": "^1.0.1",
